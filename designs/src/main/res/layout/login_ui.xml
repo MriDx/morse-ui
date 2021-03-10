@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkGreen">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="406dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_top_curved"
+        android:backgroundTint="@color/white"
+        android:gravity="center"
+        android:minHeight="400dp"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/loginFormHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Please enter the mobile
+phone number and small
+tea grower registration ID "
+            android:textSize="20sp" />
+
+
+        <com.mridx.design.element.CustomInputField
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:fieldHint="9854598545"
+            app:fieldLabel="Phone number"
+            app:fieldTopMargin="5dp" />
+
+        <com.mridx.design.element.CustomInputField
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:fieldHint="ASJOSOS123458"
+            app:fieldLabel="Registration number"
+            app:fieldTopMargin="5dp"
+            app:prefixEnabled="false" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="30dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Send OTP"
+            app:cornerRadius="28dp" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- common text attributes -->
+    <declare-styleable name="CommonTextAttributes">
+        <attr name="headerText" format="string" />
+        <attr name="headerTextSize" format="dimension" />
+        <attr name="headerTextStyle">
+            <flag name="normal" value="0" />
+            <flag name="bold" value="1" />
+            <flag name="italic" value="2" />
+            <flag name="italicBold" value="3" />
+        </attr>
+
+        <attr name="subHeaderText" format="string" />
+        <attr name="subHeaderTextSize" format="dimension" />
+        <attr name="subHeaderTextStyle">
+            <flag name="normal" value="0" />
+            <flag name="bold" value="1" />
+            <flag name="italic" value="2" />
+            <flag name="italicBold" value="3" />
+        </attr>
+
+        <attr name="valueText" format="string" />
+        <attr name="valueTextSize" format="dimension" />
+        <attr name="valueTextStyle">
+            <flag name="normal" value="0" />
+            <flag name="bold" value="1" />
+            <flag name="italic" value="2" />
+            <flag name="italicBold" value="3" />
+        </attr>
+
+        <attr name="fieldLabel" format="string" />
+        <attr name="fieldLabelSize" format="dimension" />
+
+        <attr name="prefixEnabled" format="boolean" />
+        <attr name="fieldTextColor" format="color" />
+        <attr name="fieldHint" format="string" />
+        <attr name="fieldTextSize" format="string" />
+        <attr name="fieldTextStyle">
+            <flag name="normal" value="0" />
+            <flag name="bold" value="1" />
+            <flag name="italic" value="2" />
+            <flag name="italicBold" value="3" />
+        </attr>
+
+        <attr name="fieldTopMargin" format="dimension" />
+        <attr name="fieldType">
+            <!--<flag name="default" value="0" />-->
+            <flag name="phone" value="1" />
+            <flag name="person-name" value="2" />
+            <flag name="address" value="3" />
+            <flag name="pincode" value="4" />
+            <flag name="otp" value="5" />
+        </attr>
+
+
+    </declare-styleable>
+
+    <!-- custom icon attributes-->
+    <declare-styleable name="CommonIconAttributes">
+        <attr name="srcCompat" format="reference" />
+        <attr name="icon" format="reference" />
+        <attr name="iconTint" format="color" />
+        <attr name="iconSize" format="dimension" />
+    </declare-styleable>
+
+
+    <!-- setting item -->
+    <declare-styleable name="SettingsItem">
+        <attr name="headerText" />
+        <attr name="headerTextSize" />
+        <attr name="headerTextStyle" />
+        <attr name="valueText" />
+        <attr name="valueTextSize" />
+        <attr name="valueTextStyle" />
+        <attr name="icon" />
+        <attr name="iconSize" />
+        <attr name="iconTint" />
+    </declare-styleable>
+
+
+    <!-- Custom input field -->
+    <declare-styleable name="CustomInputField">
+        <attr name="fieldLabel" />
+        <attr name="fieldLabelSize" />
+        <attr name="prefixEnabled" />
+        <attr name="prefixText" />
+        <attr name="fieldTextColor" />
+        <attr name="fieldTextSize" />
+        <attr name="fieldTextStyle" />
+        <attr name="fieldHint" />
+        <attr name="fieldTopMargin" />
+        <attr name="fieldType" />
+    </declare-styleable>
+
+
+</resources>
