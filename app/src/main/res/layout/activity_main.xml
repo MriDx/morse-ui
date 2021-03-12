@@ -7,13 +7,24 @@
     android:orientation="vertical"
     >
 
-    <com.mridx.design.element.CustomInputField
+
+
+    <com.mridx.design.element.CustomOTPField
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/phoneField"
-        app:fieldType="person-name"
+        app:fieldCount="5"
+        app:fieldSize="70dp"
+        app:fieldTextSize="20sp"
+        app:fieldHint="ndjbbdisdibi"
+        android:id="@+id/customOTP"
         />
 
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/getOTP"
+        />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

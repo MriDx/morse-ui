@@ -27,6 +27,7 @@ class CommonUtils {
             this.layoutParams.height = indp
         }
 
+
         fun ShapeableImageView.setTint(color: Int) {
             this.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
         }
