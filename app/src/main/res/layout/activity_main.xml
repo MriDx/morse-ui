@@ -16,6 +16,7 @@
         app:fieldSize="70dp"
         app:fieldTextSize="20sp"
         app:fieldHint="ndjbbdisdibi"
+        app:fieldInputType="text"
         android:id="@+id/customOTP"
         />
 

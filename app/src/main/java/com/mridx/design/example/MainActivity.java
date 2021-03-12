@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.mridx.design.element.CustomOTPField;
 import com.mridx.design.example.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,15 +20,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        Log.d("kaku", "onCreate: " + binding.customOTP.getTotalChild());
-
-        Log.d("kaku", "onCreate: " + binding.customOTP.getOTP());
-
-
         binding.getOTP.setOnClickListener(view -> {
             Log.d("kaku", "onCreate: " + binding.customOTP.getOTP());
         });
 
+        binding.customOTP.setListener(otp -> {
+            Log.d("kaku", "onCreate: otp completed " + otp);
+            return null;
+        });
 
 
     }

@@ -30,9 +30,12 @@ class CustomOTPField : LinearLayoutCompat {
     private var fieldTextSize = 20f
     private var fieldTextColor = Color.BLACK
     private var fieldHintTextColor = Color.GRAY
-    private var otp = ""
     private var hintOtp = "0123456"
     private var fieldBackground = R.drawable.rounded_corner_bg
+    private var inputType = 0
+
+
+    private var onCompletionListener: ((otp: String) -> Unit)? = null
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
@@ -77,6 +80,8 @@ class CustomOTPField : LinearLayoutCompat {
                         typedArray.getColor(attr, fieldHintTextColor)
                     R.styleable.CustomOTPField_fieldBackground -> fieldBackground =
                         typedArray.getResourceId(attr, fieldBackground)
+                    R.styleable.CustomOTPField_fieldInputType -> inputType =
+                        typedArray.getInt(attr, 0)
                 }
             }
 
@@ -111,6 +116,8 @@ class CustomOTPField : LinearLayoutCompat {
             edittext.background = AppCompatResources.getDrawable(context, fieldBackground)
             edittext.gravity = Gravity.CENTER
             //setHint(hintOtp)
+            edittext.inputType =
+                if (inputType == 0) InputType.TYPE_CLASS_NUMBER + InputType.TYPE_NUMBER_FLAG_SIGNED else InputType.TYPE_CLASS_TEXT
 
             edittext.setHintTextColor(fieldHintTextColor)
 
@@ -133,6 +140,11 @@ class CustomOTPField : LinearLayoutCompat {
                         binding.root.getChildAt(i - 1).requestFocus()
                     }
                 }
+                getOTP().also { otp ->
+                    if (otp.length == fieldCount) {
+                        onCompletionListener?.invoke(otp)
+                    }
+                }
             }
 
             binding.fieldHolder.addView(edittext, layoutParams)
@@ -151,15 +163,20 @@ class CustomOTPField : LinearLayoutCompat {
 
     fun getTotalChild() = binding.fieldHolder.childCount
 
-    fun setHint(hint: String) {
-        /*for (i in 0 until binding.root.childCount) {
+    /*fun setHint(hint: String) {
+        *//*for (i in 0 until binding.root.childCount) {
             (binding.root.getChildAt(i) as AppCompatEditText).hint =
                 if (hint.length >= i) hint[i].toString() else ""
-        }*/
+        }*//*
         binding.fieldHolder.forEachIndexed { index, view ->
             if (hint.length > index) // 6 > 4
                 (view as AppCompatEditText).hint = binding.fieldHolder.childCount.toString()
         }
+    }*/
+
+    fun setListener(listener: ((otp: String) -> Unit)) {
+        this.onCompletionListener = listener
     }
+
 
 }

@@ -59,6 +59,10 @@
         <attr name="fieldCount" format="integer" />
         <attr name="fieldSize" format="dimension" />
         <attr name="fieldBackground" format="reference" />
+        <attr name="fieldInputType">
+            <flag name="number" value="0" />
+            <flag name="text" value="1" />
+        </attr>
 
 
     </declare-styleable>
@@ -111,6 +115,7 @@
         <attr name="fieldHint" />
         <attr name="fieldHintColor" />
         <attr name="fieldBackground" />
+        <attr name="fieldInputType" />
 
     </declare-styleable>
 
