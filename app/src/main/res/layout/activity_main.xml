@@ -4,21 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center"
+    >
 
 
     <com.mridx.design.element.ProgressButton
-        android:id="@+id/progressButton"
+        android:id="@+id/phoneLoginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
         android:indeterminate="true"
-        android:text="Click ME"
-        app:textAllCaps="false"
+        android:text="Get started"
+        android:textSize="20sp"
+        app:buttonHeight="60dp"
         app:progressBarElevation="5dp"
         app:progressColor="@color/white"
         app:rippleColor="@color/white"
-        app:showProgressbar="false" />
+        app:showProgressbar="false"
+        app:textAllCaps="false"
+        app:backgroundTint="#FFD740"
+        app:cornerRadius="20dp"
+        android:gravity="bottom"
+        />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
