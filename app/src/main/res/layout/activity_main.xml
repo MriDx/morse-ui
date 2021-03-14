@@ -8,24 +8,21 @@
     >
 
 
-
-    <com.mridx.design.element.CustomOTPField
+    <com.mridx.design.element.ProgressButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:fieldCount="5"
-        app:fieldSize="70dp"
-        app:fieldTextSize="20sp"
-        app:fieldHint="ndjbbdisdibi"
-        app:fieldInputType="text"
-        android:id="@+id/customOTP"
+        android:layout_height="50dp"
+        android:text="Click ME"
+        app:showProgressbar="false"
+        app:progressColor="@color/white"
+        app:progressBarElevation="5dp"
+        android:indeterminate="true"
+        android:id="@+id/progressButton"
+        app:cornerRadius="28dp"
+        android:layout_margin="10dp"
+        app:rippleColor="@color/white"
         />
 
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/getOTP"
-        />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

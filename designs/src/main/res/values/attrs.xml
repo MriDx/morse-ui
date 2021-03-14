@@ -64,6 +64,10 @@
             <flag name="text" value="1" />
         </attr>
 
+        <attr name="progressBarElevation" format="dimension" />
+        <attr name="progressColor" format="color" />
+        <attr name="showProgressbar" format="boolean" />
+
 
     </declare-styleable>
 
@@ -117,6 +121,25 @@
         <attr name="fieldBackground" />
         <attr name="fieldInputType" />
 
+    </declare-styleable>
+
+    <!-- Progress button -->
+    <declare-styleable name="ProgressButton">
+        <attr name="android:layout_height" />
+        <attr name="cornerRadius" />
+        <attr name="android:text" />
+        <attr name="android:textSize" />
+        <attr name="android:textStyle" />
+        <attr name="elevation" />
+        <attr name="android:elevation" />
+        <attr name="progressBarElevation" />
+        <attr name="backgroundTint" />
+        <attr name="rippleColor" />
+
+        <attr name="android:indeterminate" />
+        <attr name="progressBarStyle" />
+        <attr name="progressColor" />
+        <attr name="showProgressbar" />
     </declare-styleable>
 
 

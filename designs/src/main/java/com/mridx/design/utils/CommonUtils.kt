@@ -17,6 +17,11 @@ class CommonUtils {
             return px / (context.resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
         }
 
+        @JvmName("convertPixelsToDp1")
+        fun Float.convertPixelsToDp(context: Context): Float {
+            return this / (context.resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
+        }
+
         fun View.setSize(size: Int) {
             val indp = TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP,

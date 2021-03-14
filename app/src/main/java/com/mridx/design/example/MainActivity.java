@@ -1,6 +1,7 @@
 package com.mridx.design.example;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -20,13 +21,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        binding.getOTP.setOnClickListener(view -> {
-            Log.d("kaku", "onCreate: " + binding.customOTP.getOTP());
-        });
+        /*new Handler().postDelayed(() -> {
+            binding.progressButton.showProgressbar(true);
+            new Handler().postDelayed(() -> binding.progressButton.showProgressbar(false), 1000 * 2);
+        }, 1000 * 2);*/
 
-        binding.customOTP.setListener(otp -> {
-            Log.d("kaku", "onCreate: otp completed " + otp);
-            return null;
+        binding.progressButton.setClickListener(view -> {
+            binding.progressButton.showProgressbar(true);
+            new Handler().postDelayed(() -> binding.progressButton.showProgressbar(false), 1000 * 2);
         });
 
 
