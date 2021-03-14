@@ -130,14 +130,17 @@
         <attr name="android:layout_height" />
         <attr name="cornerRadius" />
         <attr name="android:text" />
+        <attr name="android:textColor" />
         <attr name="android:textSize" />
         <attr name="android:textStyle" />
+        <attr name="textAllCaps" />
         <attr name="elevation" />
         <attr name="android:elevation" />
         <attr name="progressBarElevation" />
         <attr name="backgroundTint" />
         <attr name="rippleColor" />
         <attr name="buttonHeight" />
+
 
         <attr name="android:indeterminate" />
         <attr name="progressBarStyle" />

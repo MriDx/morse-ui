@@ -23,6 +23,8 @@ class ProgressButton : LinearLayoutCompat {
 
     private var text = "Hello World"
 
+    private var showingProgress = false
+
     var clickListener: OnClickListener? = null
 
 
@@ -51,6 +53,11 @@ class ProgressButton : LinearLayoutCompat {
                         typedArray.getString(attr).also {
                             text = it ?: text
                         }
+                    R.styleable.ProgressButton_textAllCaps -> binding.button.isAllCaps =
+                        typedArray.getBoolean(attr, true)
+                    R.styleable.ProgressButton_android_textColor -> binding.button.setTextColor(
+                        typedArray.getColor(attr, 0)
+                    )
                     R.styleable.ProgressButton_android_textSize -> binding.button.textSize =
                         convertPixelsToDp(typedArray.getDimension(attr, 20f), context)
                     R.styleable.ProgressButton_android_textStyle -> binding.button.setTypeface(
@@ -89,7 +96,8 @@ class ProgressButton : LinearLayoutCompat {
         }
 
         binding.button.setOnClickListener {
-            clickListener?.onClick(it)
+            if (!showingProgress)
+                clickListener?.onClick(it)
         }
 
 
@@ -97,13 +105,16 @@ class ProgressButton : LinearLayoutCompat {
 
 
     fun showProgressbar(show: Boolean) {
+        showingProgress = show
         binding.apply {
             if (show) {
                 this.button.text = ""
                 this.circleProgressbar.isVisible = true
+                //this.button.isEnabled = false
             } else {
                 this.button.text = text
                 this.circleProgressbar.isVisible = false
+                //this.button.isEnabled = true
             }
         }
     }

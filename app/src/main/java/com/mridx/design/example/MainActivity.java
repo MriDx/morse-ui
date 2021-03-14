@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding.progressButton.setClickListener(view -> {
             binding.progressButton.showProgressbar(true);
-            new Handler().postDelayed(() -> binding.progressButton.showProgressbar(false), 1000 * 2);
+            new Handler().postDelayed(() -> binding.progressButton.showProgressbar(false), 1000 * 5);
         });
 
 
