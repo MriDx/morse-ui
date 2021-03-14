@@ -3,6 +3,6 @@
     package="com.mridx.design"
     >
 
-    <application android:theme="@style/Theme.FullScreen" />
+    <!--<application android:theme="@style/Theme.FullScreen" />-->
 
 </manifest>
