@@ -68,6 +68,8 @@
         <attr name="progressColor" format="color" />
         <attr name="showProgressbar" format="boolean" />
 
+        <attr name="buttonHeight" format="dimension" />
+
 
     </declare-styleable>
 
@@ -135,6 +137,7 @@
         <attr name="progressBarElevation" />
         <attr name="backgroundTint" />
         <attr name="rippleColor" />
+        <attr name="buttonHeight" />
 
         <attr name="android:indeterminate" />
         <attr name="progressBarStyle" />

@@ -2,9 +2,9 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:padding="2dp">
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/circleProgressbar"
@@ -19,7 +19,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:textAppearance="?attr/textAppearanceButton"

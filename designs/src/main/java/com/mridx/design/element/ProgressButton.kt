@@ -45,7 +45,7 @@ class ProgressButton : LinearLayoutCompat {
         try {
             for (i in 0 until typedArray.indexCount) {
                 when (val attr = typedArray.getIndex(i)) {
-                    R.styleable.ProgressButton_android_layout_height -> binding.button.layoutParams.height =
+                    R.styleable.ProgressButton_buttonHeight -> binding.button.layoutParams.height =
                         typedArray.getDimension(attr, 20f).roundToInt()
                     R.styleable.ProgressButton_android_text -> binding.button.text =
                         typedArray.getString(attr).also {
