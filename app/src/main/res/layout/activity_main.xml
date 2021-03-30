@@ -4,10 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
-    >
+    android:orientation="vertical">
 
+    <com.mridx.design.element.CustomOTPField
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fieldCount="7"
+        app:specialFieldBackground="@color/darkGreen"
+        app:specialFiledStartsFrom="5"
+        android:id="@+id/meterReadingField"
+        app:fieldTextColor="@color/white"
+        app:fieldSize="40dp"
+        app:fieldTextSize="18sp"
+        />
 
     <com.mridx.design.element.ProgressButton
         android:id="@+id/phoneLoginBtn"
@@ -16,19 +26,18 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="5dp"
+        android:gravity="bottom"
         android:indeterminate="true"
         android:text="Get started"
         android:textSize="20sp"
+        app:backgroundTint="#FFD740"
         app:buttonHeight="60dp"
+        app:cornerRadius="20dp"
         app:progressBarElevation="5dp"
         app:progressColor="@color/white"
         app:rippleColor="@color/white"
         app:showProgressbar="false"
-        app:textAllCaps="false"
-        app:backgroundTint="#FFD740"
-        app:cornerRadius="20dp"
-        android:gravity="bottom"
-        />
+        app:textAllCaps="false" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

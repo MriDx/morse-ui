@@ -1,12 +1,15 @@
 package com.mridx.design.element
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.text.InputFilter
 import android.text.InputType
 import android.util.AttributeSet
 import android.util.Log
+import android.view.ActionMode
 import android.view.Gravity
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
 import androidx.appcompat.content.res.AppCompatResources
@@ -14,6 +17,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.view.children
 import androidx.core.view.forEachIndexed
+import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
 import com.mridx.design.R
 import com.mridx.design.databinding.CustomOtpFieldBinding
@@ -32,6 +36,8 @@ class CustomOTPField : LinearLayoutCompat {
     private var fieldHintTextColor = Color.GRAY
     private var hintOtp = "0123456"
     private var fieldBackground = R.drawable.rounded_corner_bg
+    private var specialFieldBackgroundColor = Color.RED
+    private var specialFieldStartsFrom = -1
     private var inputType = 0
 
 
@@ -82,6 +88,13 @@ class CustomOTPField : LinearLayoutCompat {
                         typedArray.getResourceId(attr, fieldBackground)
                     R.styleable.CustomOTPField_fieldInputType -> inputType =
                         typedArray.getInt(attr, 0)
+                    R.styleable.CustomOTPField_specialFieldBackgroundColor -> {
+                        specialFieldBackgroundColor =
+                            typedArray.getColor(attr, specialFieldBackgroundColor)
+                    }
+                    R.styleable.CustomOTPField_specialFiledStartsFrom -> {
+                        specialFieldStartsFrom = typedArray.getInt(attr, specialFieldStartsFrom)
+                    }
                 }
             }
 
@@ -114,12 +127,26 @@ class CustomOTPField : LinearLayoutCompat {
                 edittext.imeOptions = EditorInfo.IME_ACTION_NEXT
             }
             edittext.background = AppCompatResources.getDrawable(context, fieldBackground)
+            if (specialFieldStartsFrom != -1 && i >= specialFieldStartsFrom) {
+                edittext.backgroundTintList = ColorStateList.valueOf(specialFieldBackgroundColor)
+            }
             edittext.gravity = Gravity.CENTER
             //setHint(hintOtp)
             edittext.inputType =
                 if (inputType == 0) InputType.TYPE_CLASS_NUMBER + InputType.TYPE_NUMBER_FLAG_SIGNED else InputType.TYPE_CLASS_TEXT
 
             edittext.setHintTextColor(fieldHintTextColor)
+
+            edittext.setOnKeyListener { view, keyCode, keyEvent ->
+                if (keyCode == KeyEvent.KEYCODE_DEL && keyEvent.action == KeyEvent.ACTION_DOWN) {
+                    if (edittext.hasFocus()) {
+                        edittext.text?.clear()
+                        if (i > 0)
+                            (binding.fieldHolder.getChildAt(i - 1) as AppCompatEditText).requestFocus()
+                    }
+                }
+                return@setOnKeyListener false
+            }
 
             edittext.doAfterTextChanged {
                 if (it?.length == 1) {

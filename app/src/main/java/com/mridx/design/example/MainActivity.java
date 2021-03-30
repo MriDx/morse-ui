@@ -26,10 +26,11 @@ public class MainActivity extends AppCompatActivity {
             new Handler().postDelayed(() -> binding.progressButton.showProgressbar(false), 1000 * 2);
         }, 1000 * 2);*/
 
-        binding.progressButton.setClickListener(view -> {
-            binding.progressButton.showProgressbar(true);
-            new Handler().postDelayed(() -> binding.progressButton.showProgressbar(false), 1000 * 5);
+        binding.phoneLoginBtn.setClickListener(view -> {
+            binding.phoneLoginBtn.showProgressbar(true);
+            new Handler().postDelayed(() -> binding.phoneLoginBtn.showProgressbar(false), 1000 * 5);
         });
+
 
 
     }
