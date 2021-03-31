@@ -7,16 +7,5 @@
     android:id="@+id/fieldHolder"
     >
 
-   <!-- <com.google.android.material.textview.MaterialTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="hello" />
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/otpFieldHolder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" />
--->
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -19,9 +19,12 @@ import androidx.core.view.children
 import androidx.core.view.forEachIndexed
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doBeforeTextChanged
+import androidx.core.widget.doOnTextChanged
 import com.mridx.design.R
 import com.mridx.design.databinding.CustomOtpFieldBinding
 import com.mridx.design.utils.CommonUtils
+import com.mridx.design.utils.CommonUtils.Companion.dpToInt
 import com.mridx.design.utils.CommonUtils.Companion.setSize
 import kotlin.math.roundToInt
 
@@ -114,9 +117,12 @@ class CustomOTPField : LinearLayoutCompat {
                 LayoutParams.WRAP_CONTENT
             ).also {
                 it.setMargins(5, 0, 5, 0)
+                it.gravity = Gravity.CENTER
                 edittext.layoutParams = it
             }
-            edittext.setSize(fieldSize)
+            //edittext.setSize(fieldSize)
+            //edittext.height = dpToInt(context, 50)
+            edittext.width = dpToInt(context, fieldSize)
             edittext.textSize = fieldTextSize
             edittext.setTextColor(fieldTextColor)
             edittext.inputType = InputType.TYPE_CLASS_TEXT
@@ -137,16 +143,16 @@ class CustomOTPField : LinearLayoutCompat {
 
             edittext.setHintTextColor(fieldHintTextColor)
 
-            edittext.setOnKeyListener { view, keyCode, keyEvent ->
-                if (keyCode == KeyEvent.KEYCODE_DEL && keyEvent.action == KeyEvent.ACTION_DOWN) {
-                    if (edittext.hasFocus()) {
-                        edittext.text?.clear()
-                        if (i > 0)
-                            (binding.fieldHolder.getChildAt(i - 1) as AppCompatEditText).requestFocus()
+
+            edittext.doOnTextChanged { text, start, before, count ->
+                if (count == 0 && i > 0) {
+                    val ed = (binding.fieldHolder.getChildAt(i - 1) as AppCompatEditText)
+                    if (ed.text?.length ?: 0 == 0) {
+                        (binding.fieldHolder.getChildAt(i - 2) as AppCompatEditText).requestFocus()
                     }
                 }
-                return@setOnKeyListener false
             }
+
 
             edittext.doAfterTextChanged {
                 if (it?.length == 1) {
@@ -174,10 +180,21 @@ class CustomOTPField : LinearLayoutCompat {
                 }
             }
 
+            /*edittext.setOnKeyListener { view, keyCode, keyEvent ->
+                if (keyCode == KeyEvent.KEYCODE_DEL && keyEvent.action == KeyEvent.ACTION_DOWN) {
+                    if (view.hasFocus()) {
+                        (view as AppCompatEditText).text?.clear()
+                        if (i > 0)
+                            (binding.fieldHolder.getChildAt(i - 1) as AppCompatEditText).requestFocus()
+                    }
+                }
+                return@setOnKeyListener false
+            }*/
+
             binding.fieldHolder.addView(edittext, layoutParams)
 
         }
-
+        (binding.fieldHolder.getChildAt(0) as AppCompatEditText).requestFocus()
     }
 
     fun getOTP(): String {

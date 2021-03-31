@@ -32,6 +32,12 @@ class CommonUtils {
             this.layoutParams.height = indp
         }
 
+        fun dpToInt(context: Context, size: Int) = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            size.toFloat(),
+            context.resources.displayMetrics
+        ).roundToInt()
+
 
         fun ShapeableImageView.setTint(color: Int) {
             this.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)

@@ -16,7 +16,6 @@
         android:id="@+id/meterReadingField"
         app:fieldTextColor="@color/white"
         app:fieldSize="40dp"
-        app:fieldTextSize="18sp"
         />
 
     <com.mridx.design.element.ProgressButton
