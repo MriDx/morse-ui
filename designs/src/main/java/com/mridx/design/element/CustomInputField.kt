@@ -5,6 +5,8 @@ import android.graphics.Typeface
 import android.text.InputFilter
 import android.text.InputType
 import android.util.AttributeSet
+import android.util.TypedValue
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.widget.LinearLayoutCompat
@@ -24,9 +26,21 @@ class CustomInputField : LinearLayoutCompat {
     val FIELD_TYPE_PHONE = 1
     val FIELD_TYPE_PERSON_NAME = 2
     val FIELD_TYPE_ADDRESS = 3
+    val FIELD_TYPE_MULTILINE = 3
     val FIELD_TYPE_PINCODE = 4
     val FIELD_TYPE_OTP = 5
+    val FIELD_TYPE_NUMBER = 6
+    val FIELD_TYPE_NUMBER_DECIMAL = 7
 
+    companion object {
+
+    }
+
+
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        binding.field.isEnabled = enabled
+    }
 
     var value: String
         get() = binding.field.text.toString()
@@ -51,10 +65,16 @@ class CustomInputField : LinearLayoutCompat {
 
     private fun render(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
 
+        /*binding.prefixLabel.text = "+91"
+        binding.field.setText("9854935115")
+        binding.fieldLabel.text = "Phone number"*/
+
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomInputField)
         try {
             for (i in 0 until typedArray.indexCount) {
                 when (val attr = typedArray.getIndex(i)) {
+                    R.styleable.CustomInputField_showLabel -> binding.fieldLabel.isVisible =
+                        typedArray.getBoolean(attr, true)
                     R.styleable.CustomInputField_fieldLabel -> binding.fieldLabel.text =
                         typedArray.getString(attr)
                     R.styleable.CustomInputField_fieldLabelSize -> {
@@ -64,10 +84,7 @@ class CustomInputField : LinearLayoutCompat {
                             }
                     }
                     R.styleable.CustomInputField_prefixEnabled -> {
-                        if (typedArray.getBoolean(attr, true))
-                            binding.prefixLabel.visibility = View.VISIBLE
-                        else
-                            binding.prefixLabel.visibility = View.GONE
+                        binding.prefixLabel.isVisible = typedArray.getBoolean(attr, true)
                     }
                     R.styleable.CustomInputField_prefixText -> binding.prefixLabel.text =
                         typedArray.getString(attr)
@@ -102,6 +119,9 @@ class CustomInputField : LinearLayoutCompat {
                     R.styleable.CustomInputField_fieldType -> {
                         _setFieldType(typedArray.getInt(attr, 0))
                     }
+                    R.styleable.CustomInputField_android_enabled -> {
+                        isEnabled = typedArray.getBoolean(attr, true)
+                    }
 
                 }
             }
@@ -112,6 +132,18 @@ class CustomInputField : LinearLayoutCompat {
     }
 
     fun setFieldType(type: Int) = _setFieldType(type)
+    val field get() = binding.field
+    fun showLabel(b: Boolean) {
+        binding.fieldLabel.isVisible = b
+    }
+
+    fun fieldTextSize(float: Float) {
+        field.textSize = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            20f,
+            context.resources.displayMetrics
+        )
+    }
 
     private fun _setFieldType(type: Int) {
         when (type) {
@@ -133,6 +165,9 @@ class CustomInputField : LinearLayoutCompat {
                 binding.field.apply {
                     this.inputType =
                         InputType.TYPE_CLASS_TEXT + InputType.TYPE_TEXT_FLAG_MULTI_LINE + InputType.TYPE_TEXT_FLAG_IME_MULTI_LINE + InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE + InputType.TYPE_TEXT_FLAG_AUTO_CORRECT
+                    maxLines = 5
+                    minLines = 3
+                    gravity = Gravity.START + Gravity.TOP
                 }
             }
             FIELD_TYPE_PINCODE -> {
@@ -145,6 +180,14 @@ class CustomInputField : LinearLayoutCompat {
             }
             FIELD_TYPE_OTP -> {
 
+            }
+            FIELD_TYPE_NUMBER -> {
+                binding.field.inputType =
+                    InputType.TYPE_CLASS_NUMBER + InputType.TYPE_NUMBER_FLAG_SIGNED
+            }
+            FIELD_TYPE_NUMBER_DECIMAL -> {
+                binding.field.inputType =
+                    InputType.TYPE_CLASS_NUMBER + InputType.TYPE_NUMBER_FLAG_DECIMAL
             }
             else -> {
 

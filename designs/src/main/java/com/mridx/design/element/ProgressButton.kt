@@ -26,6 +26,9 @@ class ProgressButton : LinearLayoutCompat {
     private var showingProgress = false
 
     var clickListener: OnClickListener? = null
+    override fun setOnClickListener(l: OnClickListener?) {
+        this.clickListener = l
+    }
 
 
     constructor(context: Context) : super(context)

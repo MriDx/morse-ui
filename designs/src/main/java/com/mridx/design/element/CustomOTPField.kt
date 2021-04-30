@@ -205,6 +205,10 @@ class CustomOTPField : LinearLayoutCompat {
         return tmpOtp.toString()
     }
 
+    fun isFilled(): Boolean {
+        return getOTP().length == fieldCount
+    }
+
     fun getTotalChild() = binding.fieldHolder.childCount
 
     /*fun setHint(hint: String) {
@@ -221,6 +225,4 @@ class CustomOTPField : LinearLayoutCompat {
     fun setListener(listener: ((otp: String) -> Unit)) {
         this.onCompletionListener = listener
     }
-
-
 }

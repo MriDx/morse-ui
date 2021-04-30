@@ -31,6 +31,7 @@
             <flag name="italicBold" value="3" />
         </attr>
 
+        <attr name="showLabel" format="boolean" />
         <attr name="fieldLabel" format="string" />
         <attr name="fieldLabelSize" format="dimension" />
 
@@ -52,8 +53,12 @@
             <flag name="phone" value="1" />
             <flag name="person-name" value="2" />
             <flag name="address" value="3" />
+            <flag name="multiline" value="3" />
             <flag name="pincode" value="4" />
             <flag name="otp" value="5" />
+            <flag name="number" value="6" />
+            <flag name="decimalNumber" value="7" />
+            <flag name="password" value="8" />
         </attr>
 
         <attr name="fieldCount" format="integer" />
@@ -101,6 +106,7 @@
 
     <!-- Custom input field -->
     <declare-styleable name="CustomInputField">
+        <attr name="showLabel" />
         <attr name="fieldLabel" />
         <attr name="fieldLabelSize" />
         <attr name="prefixEnabled" />
@@ -111,6 +117,7 @@
         <attr name="fieldHint" />
         <attr name="fieldTopMargin" />
         <attr name="fieldType" />
+        <attr name="android:enabled" />
     </declare-styleable>
 
 
