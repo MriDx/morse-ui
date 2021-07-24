@@ -19,5 +19,7 @@
     <color name="customInputFieldHint">#B8B8B8</color>
     <color name="customInputFieldTextColor">#686868</color>
     <color name="inputFieldBg">#BCBCBC</color>
+    <color name="activeIndicator">#CC000000</color>
+    <color name="inactiveIndicator">#656565</color>
 
 </resources>

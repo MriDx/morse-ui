@@ -7,7 +7,14 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.mridx.design.element.CustomOTPField
+    <com.mridx.design.element.BannerView
+        android:id="@+id/bannerView"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_margin="10dp"
+        />
+
+    <!--<com.mridx.design.element.CustomOTPField
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:fieldCount="7"
@@ -36,7 +43,7 @@
         app:progressColor="@color/white"
         app:rippleColor="@color/white"
         app:showProgressbar="false"
-        app:textAllCaps="false" />
+        app:textAllCaps="false" />-->
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
