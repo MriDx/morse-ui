@@ -22,4 +22,8 @@
     <color name="activeIndicator">#CC000000</color>
     <color name="inactiveIndicator">#656565</color>
 
+
+    <color name="searchBarStroke">#D6D6D6</color>
+
+
 </resources>

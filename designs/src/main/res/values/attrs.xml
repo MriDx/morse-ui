@@ -81,6 +81,21 @@
 
     </declare-styleable>
 
+    <!-- common -->
+    <declare-styleable name="common">
+        <attr name="title" format="string" />
+        <attr name="appBarType">
+            <flag name="Back" value="1" />
+            <flag name="Menu" value="0" />
+        </attr>
+
+        <attr name="headerIcon" format="reference" />
+        <attr name="cartIcon" format="reference" />
+        <attr name="homeIcon" format="reference" />
+        <attr name="showHome" format="boolean" />
+        <attr name="showCart" format="boolean" />
+    </declare-styleable>
+
     <!-- custom icon attributes-->
     <declare-styleable name="CommonIconAttributes">
         <attr name="srcCompat" format="reference" />
@@ -159,6 +174,32 @@
         <attr name="progressBarStyle" />
         <attr name="progressColor" />
         <attr name="showProgressbar" />
+    </declare-styleable>
+
+
+    <!-- appbar -->
+    <declare-styleable name="AppBar">
+        <attr name="title" />
+        <attr name="appBarType" />
+        <attr name="headerIcon" />
+        <attr name="cartIcon" />
+        <attr name="homeIcon" />
+        <attr name="showHome" />
+        <attr name="showCart" />
+    </declare-styleable>
+
+    <!-- horizontal bar -->
+    <declare-styleable name="HorizontalBar">
+        <attr name="title" />
+        <attr name="android:textStyle" />
+        <attr name="android:textSize" />
+        <attr name="android:textColor" />
+        <attr name="icon" />
+    </declare-styleable>
+
+    <!-- category view -->
+    <declare-styleable name="CategoryView" >
+
     </declare-styleable>
 
 
