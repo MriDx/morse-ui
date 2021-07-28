@@ -32,6 +32,13 @@ class HorizontalBar : LinearLayoutCompat {
         render(context, attrs, defStyleAttr)
     }
 
+    var title = ""
+        set(value) = run {
+            field = value
+            binding.title.text = field
+        }
+
+
     private fun render(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
 
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.HorizontalBar)
@@ -41,6 +48,7 @@ class HorizontalBar : LinearLayoutCompat {
                 when (val attr = typedArray.getIndex(i)) {
                     R.styleable.HorizontalBar_title -> {
                         binding.title.text = typedArray.getString(attr)
+                        //title = typedArray.getString(attr).toString()
                     }
                     R.styleable.HorizontalBar_android_textColor -> {
                         binding.title.setTextColor(typedArray.getColor(attr, 0))

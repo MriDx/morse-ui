@@ -4,14 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical">
 
     <com.mridx.design.element.BannerView
         android:id="@+id/bannerView"
         android:layout_width="match_parent"
         android:layout_height="220dp"
-        android:layout_margin="10dp"
+        android:layout_margin="10dp" />
+
+
+    <com.mridx.design.element.ecom.CategoryView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:title="Smartphone"
+        android:id="@+id/categoryView"
         />
 
     <!--<com.mridx.design.element.CustomOTPField

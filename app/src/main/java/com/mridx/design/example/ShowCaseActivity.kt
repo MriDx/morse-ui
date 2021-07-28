@@ -25,5 +25,11 @@ class ShowCaseActivity : AppCompatActivity() {
             autoScroll = true
         }.startAutoScroll()
 
+
+        binding.categoryView.apply {
+            itemCount = 6
+        }
+
+
     }
 }

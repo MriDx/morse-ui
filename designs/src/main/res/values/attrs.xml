@@ -200,6 +200,9 @@
     <!-- category view -->
     <declare-styleable name="CategoryView" >
 
+        <attr name="title"/>
+
+
     </declare-styleable>
 
 
