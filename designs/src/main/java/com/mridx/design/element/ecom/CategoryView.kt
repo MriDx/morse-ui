@@ -54,6 +54,7 @@ class CategoryView : LinearLayoutCompat {
         }
 
 
+
         binding.itemHolder.apply {
             setItemCount(itemCount)
             itemBuilder = { parent, index ->

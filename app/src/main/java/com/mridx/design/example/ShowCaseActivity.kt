@@ -1,9 +1,13 @@
 package com.mridx.design.example
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.mridx.design.databinding.CategoryViewBoxBinding
+import com.mridx.design.element.ecom.CategoryView
 import com.mridx.design.example.databinding.ActivityMainBinding
+import com.mridx.design.example.databinding.ShowCaseActivityBinding
 
 class ShowCaseActivity : AppCompatActivity() {
 
@@ -13,6 +17,8 @@ class ShowCaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 
 
         binding.bannerView.apply {

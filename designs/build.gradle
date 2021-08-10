@@ -46,8 +46,8 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
-    //implementation('com.github.mridx:PremadeRecyclerView:2.0-beta02')
-    implementation('io.github.mridx:PremadeRecyclerView:1.1')
+//    implementation('com.github.mridx:PremadeRecyclerView:2.0-beta02')
+    implementation('io.github.mridx:PremadeRecyclerView:1.2')
 
 
 }
