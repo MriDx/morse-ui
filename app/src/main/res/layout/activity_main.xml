@@ -6,21 +6,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.mridx.design.element.BannerView
+    <com.mridx.morse.element.BannerView
         android:id="@+id/bannerView"
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:layout_margin="10dp" />
 
 
-    <com.mridx.design.element.ecom.CategoryView
+    <com.mridx.morse.element.ecom.CategoryView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="Smartphone"
         android:id="@+id/categoryView"
         />
 
-    <!--<com.mridx.design.element.CustomOTPField
+    <!--<com.mridx.morse.element.CustomOTPField
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:fieldCount="7"
@@ -31,7 +31,7 @@
         app:fieldSize="40dp"
         />
 
-    <com.mridx.design.element.ProgressButton
+    <com.mridx.morse.element.ProgressButton
         android:id="@+id/phoneLoginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

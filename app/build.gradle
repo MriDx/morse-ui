@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.mridx.design.example"
+        applicationId "com.mridx.morse.example"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -44,7 +44,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
-    implementation project(path: ':designs')
+    implementation project(path: ':morse')
 
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha03")
 
