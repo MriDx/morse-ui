@@ -16,7 +16,9 @@
         tools:targetApi="m"
         >
 
-        <activity android:name=".ShowCaseActivity">
+        <activity android:name=".ShowCaseActivity"
+            android:exported="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

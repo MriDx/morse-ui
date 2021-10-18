@@ -12,6 +12,17 @@
         android:layout_height="220dp"
         android:layout_margin="10dp" />
 
+    <com.mridx.morse.element.CustomInputField
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:prefixText="https://"
+        app:suffixText=".sumato.tech"
+        app:showLabel="false"
+        app:fieldHint="stockwpt"
+        android:padding="5dp"
+        app:fieldTextSize="16sp"
+        />
+
 
     <com.mridx.morse.element.ecom.CategoryView
         android:layout_width="match_parent"

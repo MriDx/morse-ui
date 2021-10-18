@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.mridx.morse.R
 import com.mridx.morse.databinding.CategoryViewBoxBinding
@@ -45,6 +46,9 @@ class CategoryView : LinearLayoutCompat {
                     R.styleable.CategoryView_title -> {
                         binding.horizontalBar.title = typedArray.getString(attr).toString()
                     }
+                    R.styleable.CategoryView_showHeader -> {
+                        showHeader(typedArray.getBoolean(attr, true))
+                    }
                 }
             }
 
@@ -71,5 +75,9 @@ class CategoryView : LinearLayoutCompat {
                 setItemCount(value)
             }.render()
         }
+
+    fun showHeader(b: Boolean) {
+        binding.horizontalBar.isVisible = b
+    }
 
 }

@@ -2,34 +2,45 @@ package com.mridx.morse.example
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.core.view.setMargins
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.textview.MaterialTextView
 import com.mridx.morse.example.databinding.ActivityMainBinding
+import com.mridx.morse.example.databinding.ShowCaseActivityBinding
 
 class ShowCaseActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    //private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ShowCaseActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        //binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ShowCaseActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
+        binding.ca.apply {
+            categoryCount = 10
+            categoryBinding = { index ->
+                LinearLayoutCompat(this@ShowCaseActivity).apply {
+                    layoutParams = LinearLayoutCompat.LayoutParams(300, 300).apply {
+                        setMargins(5)
+                    }
+                    addView(
+                        MaterialTextView(this@ShowCaseActivity).apply {
+                            layoutParams = LinearLayoutCompat.LayoutParams(
+                                LinearLayoutCompat.LayoutParams.MATCH_PARENT,
+                                LinearLayoutCompat.LayoutParams.WRAP_CONTENT
+                            )
+                            text = "This is $index"
+                            textSize = 20f
+                        }
+                    )
 
-
-        binding.bannerView.apply {
-            banners = listOf(
-                "https://static.vecteezy.com/system/resources/thumbnails/002/006/614/small/paper-art-shopping-online-on-smartphone-and-new-buy-sale-promotion-pink-backgroud-for-banner-market-ecommerce-free-vector.jpg",
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSFthyVWAsRSLAS1B2IgiD_TKkeNnRQwsDcg&usqp=CAU",
-                "https://www.krativyas.com/img/product_banner/3333132190971570457519.jpg"
-            )
-            lifeCycleScope = lifecycleScope
-            autoScroll = true
-        }.startAutoScroll()
-
-
-        binding.categoryView.apply {
-            itemCount = 6
+                }
+            }
         }
 
 

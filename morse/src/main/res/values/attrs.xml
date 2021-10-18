@@ -36,6 +36,7 @@
         <attr name="fieldLabelSize" format="dimension" />
 
         <attr name="prefixEnabled" format="boolean" />
+        <attr name="suffixEnabled" format="boolean" />
         <attr name="fieldTextColor" format="color" />
         <attr name="fieldHintColor" format="color" />
         <attr name="fieldHint" format="string" />
@@ -77,6 +78,8 @@
         <attr name="showProgressbar" format="boolean" />
 
         <attr name="buttonHeight" format="dimension" />
+
+        <attr name="showHeader" format="boolean" />
 
 
     </declare-styleable>
@@ -126,6 +129,8 @@
         <attr name="fieldLabelSize" />
         <attr name="prefixEnabled" />
         <attr name="prefixText" />
+        <attr name="suffixEnabled" />
+        <attr name="suffixText" />
         <attr name="fieldTextColor" />
         <attr name="fieldTextSize" />
         <attr name="fieldTextStyle" />
@@ -198,9 +203,10 @@
     </declare-styleable>
 
     <!-- category view -->
-    <declare-styleable name="CategoryView" >
+    <declare-styleable name="CategoryView">
 
-        <attr name="title"/>
+        <attr name="title" />
+        <attr name="showHeader" />
 
 
     </declare-styleable>

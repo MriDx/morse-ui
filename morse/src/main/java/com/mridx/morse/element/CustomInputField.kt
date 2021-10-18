@@ -30,10 +30,6 @@ class CustomInputField : LinearLayoutCompat {
     val FIELD_TYPE_NUMBER = 6
     val FIELD_TYPE_NUMBER_DECIMAL = 7
 
-    companion object {
-
-    }
-
 
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
@@ -63,9 +59,6 @@ class CustomInputField : LinearLayoutCompat {
 
     private fun render(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
 
-        /*binding.prefixLabel.text = "+91"
-        binding.field.setText("9854935115")
-        binding.fieldLabel.text = "Phone number"*/
 
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomInputField)
         try {
@@ -86,12 +79,18 @@ class CustomInputField : LinearLayoutCompat {
                     }
                     R.styleable.CustomInputField_prefixText -> binding.prefixLabel.text =
                         typedArray.getString(attr)
+                    R.styleable.CustomInputField_suffixEnabled -> {
+                        binding.suffixLabel.isVisible = typedArray.getBoolean(attr, true)
+                    }
+                    R.styleable.CustomInputField_suffixText -> binding.suffixLabel.text =
+                        typedArray.getString(attr)
                     R.styleable.CustomInputField_fieldHint -> binding.field.hint =
                         typedArray.getString(attr)
                     R.styleable.CustomInputField_fieldTextColor -> {
                         typedArray.getColor(attr, 0).also {
                             binding.field.setTextColor(it)
                             binding.prefixLabel.setTextColor(it)
+                            binding.suffixLabel.setTextColor(it)
                         }
                     }
                     R.styleable.CustomInputField_fieldTextSize -> {
@@ -99,12 +98,14 @@ class CustomInputField : LinearLayoutCompat {
                             .also {
                                 binding.prefixLabel.textSize = it
                                 binding.field.textSize = it
+                                binding.suffixLabel.textSize = it
                             }
                     }
                     R.styleable.CustomInputField_fieldTextStyle -> {
                         typedArray.getInt(attr, 0).also {
                             binding.field.setTypeface(null, it)
                             binding.prefixLabel.setTypeface(null, it)
+                            binding.suffixLabel.setTypeface(null, it)
                         }
                     }
                     R.styleable.CustomInputField_fieldTopMargin -> {
